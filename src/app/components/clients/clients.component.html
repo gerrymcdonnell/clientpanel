@@ -1,3 +1,31 @@
 <p>
   clients works!
 </p>
+
+<table *ngIf="clients?.length >0;else noClients" class="table table-striped">
+  <thead class="thead-inverse">
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>email</th>
+      <th>balance</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let client of clients">
+      <td>{{client.$key}}</td>
+      <td>{{client.firstName}} {{client.lastName}}</td>
+      <td>{{client.email}}</td>
+      <td>{{client.balance}}     </td>
+      <td><a href="" class="btn btn-secondary btn-sm">details</a></td>
+    </tr>
+  </tbody>
+
+</table>
+
+<!-- id of element -->
+<ng-template #noClients>
+  No clients
+</ng-template>
