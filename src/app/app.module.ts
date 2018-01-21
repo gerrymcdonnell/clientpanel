@@ -3,7 +3,11 @@ import { NgModule } from '@angular/core';
 
 //add router module
 import {RouterModule,Routes} from '@angular/router';
+
+//forms module
 import { FormsModule } from '@angular/forms';
+
+//flsh messages module
 import { FlashMessagesModule } from 'angular2-flash-messages';
 
 //angularfire module
@@ -31,8 +35,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import {ClientService} from './services/client.service';
 
 //error fix?
-import { HttpModule } from '@angular/http';
-import { HttpClientModule } from '@angular/common/http';
+/*import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';*/
 
 //routes in app
 const appRoutes:Routes=[
@@ -76,7 +80,7 @@ export const fireBaseConfig={
 
     FormsModule,
     //error fix
-    HttpModule,HttpClientModule,
+    /*HttpModule,HttpClientModule,*/
     FlashMessagesModule
 
 

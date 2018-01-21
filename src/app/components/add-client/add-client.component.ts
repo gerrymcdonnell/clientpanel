@@ -1,16 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { Client } from '../../models/Client';
 
+//clinet model
+import { Client } from '../../models/Client';
+import { ClientService } from '../../services/client.service';
+
+//included with flash mesages component
 import { FlashMessagesService } from 'angular2-flash-messages';
 
+//router
 import { Router } from '@angular/router';
-import { ClientService } from '../../services/client.service';
+
 
 @Component({
   selector: 'app-add-client',
   templateUrl: './add-client.component.html',
   styleUrls: ['./add-client.component.css']
 })
+
+
 export class AddClientComponent implements OnInit {
   client:Client = {
     firstName:'',
@@ -19,7 +26,8 @@ export class AddClientComponent implements OnInit {
     phone:'',
     balance:0
   }
-  disableBalanceOnAdd:boolean = true;
+  //baslance flag
+  disableBalanceOnAdd:boolean = false;
   
   constructor(
     public flashMessagesService:FlashMessagesService,
@@ -29,6 +37,7 @@ export class AddClientComponent implements OnInit {
 
   ngOnInit() {
   }
+
 
   onSubmit({value, valid}:{value:Client, valid:boolean}){
     if(this.disableBalanceOnAdd){
