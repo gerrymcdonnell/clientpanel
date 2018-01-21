@@ -28,8 +28,22 @@
           [class.text-success]="!hasBalance"          
           >{{client.balance |currency:"USD":true}}
         </span>
-          
+
+        <small>
+          <a (click)="showBalanceUpdateInput=!showBalanceUpdateInput"><i class="fa fa-pencil"></i></a>
+        </small>
+
         </h3>
+        <div class="clear-fix">
+          
+          <form *ngIf="showBalanceUpdateInput" (submit)="updateBalance(id)" class="form-inline pull-right">
+              <div class="form-group">
+                <input type="text" [(ngModel)]="client.balance" name="balance" class="form-control">
+              </div>
+              <button type="submit" class="btn btn-primary">Update</button>
+          </form>
+          
+        </div>
 
       </div>
     </div>
