@@ -1,7 +1,3 @@
-<p>
-  clients works!
-</p>
-
 <table *ngIf="clients?.length >0;else noClients" class="table table-striped">
   <thead class="thead-inverse">
     <tr>
@@ -19,7 +15,7 @@
       <td>{{client.firstName}} {{client.lastName}}</td>
       <td>{{client.email}}</td>
       <td>{{client.balance}}     </td>
-      <td><a href="" class="btn btn-secondary btn-sm">details</a></td>
+      <td><a href="" class="btn btn-secondary btn-sm"><i class="fa fa-arrow-circle-o-right"></i> Details</a></td>
     </tr>
   </tbody>
 
