@@ -19,6 +19,18 @@
       </div>
       <div class="col-md-4">
         <!-- BALANCE GOES HERE -->
+        
+        <h3 class="pull-right">
+          Balance:
+          <!--class binding -->
+          <span 
+          [class.text-danger]="hasBalance"
+          [class.text-success]="!hasBalance"          
+          >{{client.balance}}
+        </span>
+          
+        </h3>
+
       </div>
     </div>
 
