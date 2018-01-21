@@ -34,6 +34,9 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 //service imports
 import {ClientService} from './services/client.service';
 
+//auth
+import { AuthService } from './services/auth.service';
+
 //error fix?
 /*import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';*/
@@ -90,7 +93,8 @@ export const fireBaseConfig={
   providers: [
     AngularFireAuth,
     AngularFireDatabase,
-    ClientService
+    ClientService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
