@@ -38,7 +38,7 @@ import {ClientService} from './services/client.service';
 import { AuthService } from './services/auth.service';
 
 //auth guard
-import {AuthGuard} from './guards/auth.guard';
+import { AuthGuard } from './guards/auth.guard';
 import { RegisterGuard } from './guards/register.guard';
 
 import { SettingsService } from './services/settings.service';
@@ -56,7 +56,10 @@ const appRoutes:Routes=[
   {path:'login',component:LoginComponent},
   {path:'add-client',component:AddClientComponent,canActivate:[AuthGuard]},
   {path:'client/:id',component:ClientDetailsComponent,canActivate:[AuthGuard]},
-  {path:'edit-client/:id',component:EditClientComponent,canActivate:[AuthGuard]}
+  {path:'edit-client/:id',component:EditClientComponent,canActivate:[AuthGuard]},
+  {path:'settings',component:SettingsComponent,canActivate:[AuthGuard]},
+  {path:'**',component:PageNotFoundComponent}
+
 ];
 
 //firebase credentials from firebase.google
