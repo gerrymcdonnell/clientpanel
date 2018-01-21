@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 //angularfire module
-import {AngularFireDatabase,  FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2/database-deprecated'
+import {AngularFireDatabase,  FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2/database';
 
 import {Observable} from 'rxjs';
 import {Client} from '../models/Client';
@@ -16,7 +16,7 @@ export class ClientService {
     public af:AngularFireDatabase
   ) 
   { 
-    this.clients=this.af.list('/clinets') as FirebaseListObservable<Client[]>;
+    this.clients=this.af.list('/clients') as FirebaseListObservable<Client[]>;
   }
 
   getClients(){

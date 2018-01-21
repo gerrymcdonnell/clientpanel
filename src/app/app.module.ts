@@ -5,9 +5,9 @@ import { NgModule } from '@angular/core';
 import {RouterModule,Routes} from '@angular/router';
 
 //angularfire module
-import {AngularFireModule} from 'angularfire2'
-import {AngularFireDatabase} from 'angularfire2/database'
-import {AngularFireAuth} from 'angularfire2/auth'
+import {AngularFireModule} from 'angularfire2';
+import {AngularFireDatabase} from 'angularfire2/database';
+import {AngularFireAuth} from 'angularfire2/auth';
 
 //compent imports
 import { AppComponent } from './app.component';
@@ -25,6 +25,10 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 
 //service imports
 import {ClientService} from './services/client.service';
+
+//error fix?
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 //routes in app
 const appRoutes:Routes=[
@@ -62,7 +66,9 @@ export const fireBaseConfig={
     //router setup, pass in app routes
     RouterModule.forRoot(appRoutes),
     //pass in firebase config settings
-    AngularFireModule.initializeApp(fireBaseConfig)
+    AngularFireModule.initializeApp(fireBaseConfig),
+    //error fix
+    HttpModule,HttpClientModule
 
   ],
   providers: [
