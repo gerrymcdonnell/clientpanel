@@ -39,6 +39,9 @@ import { AuthService } from './services/auth.service';
 
 //auth guard
 import {AuthGuard} from './guards/auth.guard';
+import { RegisterGuard } from './guards/register.guard';
+
+import { SettingsService } from './services/settings.service';
 
 //error fix?
 /*import { HttpModule } from '@angular/http';
@@ -49,7 +52,7 @@ import { HttpClientModule } from '@angular/common/http';*/
 //auth guard is active on some of these routes
 const appRoutes:Routes=[
   {path:'',component:DashboardComponent,canActivate:[AuthGuard]},
-  {path:'register',component:RegisterComponent},
+  {path:'register',component:RegisterComponent,canActivate:[RegisterGuard]},
   {path:'login',component:LoginComponent},
   {path:'add-client',component:AddClientComponent,canActivate:[AuthGuard]},
   {path:'client/:id',component:ClientDetailsComponent,canActivate:[AuthGuard]},
@@ -95,12 +98,16 @@ export const fireBaseConfig={
 
 
   ],
+  //services are providers so go here
   providers: [
     AngularFireAuth,
     AngularFireDatabase,
     ClientService,
     AuthService,
-    AuthGuard
+    AuthGuard,
+    SettingsService,
+    RegisterGuard 
+
   ],
   bootstrap: [AppComponent]
 })

@@ -14,15 +14,17 @@
 
         <ul class="navbar-nav ml-auto">
           
-          <li *ngIf="!isLoggedIn" class="nav-item">
+
+          <li *ngIf="!isLoggedIn && showRegister" class="nav-item">
             <a class="nav-link" href="#" routerLink="/register">Register</a>
           </li> 
 
-          <li *ngIf="!isLoggedIn" class="nav-item">
+          <!--show login link if logged in -->
+          <li *ngIf="!isLoggedIn && showRegister" class="nav-item">
             <a class="nav-link" href="#" routerLink="/login">Login</a>
           </li> 
           
-          <!--works -->
+          <!--show useremail if logged in-->
           <li *ngIf="isLoggedIn" class="nav-item">
               <a class="nav-link" href="#">{{loggedInUser}}</a>
           </li> 
