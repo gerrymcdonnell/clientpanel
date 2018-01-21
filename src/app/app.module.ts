@@ -37,18 +37,23 @@ import {ClientService} from './services/client.service';
 //auth
 import { AuthService } from './services/auth.service';
 
+//auth guard
+import {AuthGuard} from './guards/auth.guard';
+
 //error fix?
 /*import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';*/
 
 //routes in app
+
+//auth guard is active on some of these routes
 const appRoutes:Routes=[
-  {path:'',component:DashboardComponent},
+  {path:'',component:DashboardComponent,canActivate:[AuthGuard]},
   {path:'register',component:RegisterComponent},
   {path:'login',component:LoginComponent},
-  {path:'add-client',component:AddClientComponent},
-  {path:'client/:id',component:ClientDetailsComponent},
-  {path:'edit-client/:id',component:EditClientComponent}
+  {path:'add-client',component:AddClientComponent,canActivate:[AuthGuard]},
+  {path:'client/:id',component:ClientDetailsComponent,canActivate:[AuthGuard]},
+  {path:'edit-client/:id',component:EditClientComponent,canActivate:[AuthGuard]}
 ];
 
 //firebase credentials from firebase.google
@@ -94,7 +99,8 @@ export const fireBaseConfig={
     AngularFireAuth,
     AngularFireDatabase,
     ClientService,
-    AuthService
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
