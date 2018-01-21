@@ -9,6 +9,8 @@ import {AngularFireModule} from 'angularfire2';
 import {AngularFireDatabase} from 'angularfire2/database';
 import {AngularFireAuth} from 'angularfire2/auth';
 
+import { FormsModule }   from '@angular/forms';
+
 //compent imports
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -27,14 +29,15 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import {ClientService} from './services/client.service';
 
 //error fix?
-import { HttpModule } from '@angular/http';
-import { HttpClientModule } from '@angular/common/http';
+/*import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';*/
 
 //routes in app
 const appRoutes:Routes=[
   {path:'',component:DashboardComponent},
   {path:'register',component:RegisterComponent},
-  {path:'login',component:LoginComponent}
+  {path:'login',component:LoginComponent},
+  {path:'add-client',component:AddClientComponent}
 ];
 
 //firebase credentials from firebase.google
@@ -60,6 +63,7 @@ export const fireBaseConfig={
     RegisterComponent,
     SettingsComponent,
     PageNotFoundComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -67,8 +71,12 @@ export const fireBaseConfig={
     RouterModule.forRoot(appRoutes),
     //pass in firebase config settings
     AngularFireModule.initializeApp(fireBaseConfig),
+
+    FormsModule
     //error fix
-    HttpModule,HttpClientModule
+    //HttpModule,HttpClientModule
+
+
 
   ],
   providers: [
